@@ -6,6 +6,14 @@
 #include "Arduino.h"
 #include "usens.h"
 
-usens::usens(int trigPin, int echoPin){
-	/* something something */
+Usens::Usens(unsigned char trigPin, unsigned char echoPin){
+	/* implement */
+}
+
+bool Usens::isBlocked(){
+	/* implement */
+}
+
+float Usens::distance(){
+	/* implement */
 }
