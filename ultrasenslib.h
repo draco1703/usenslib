@@ -16,7 +16,8 @@ class Ultrasenslib
 	private:
 		unsigned char _trigPin;
 		unsigned char _echoPin;
-		unsigned long _duration;
+		unsigned long _dur;
+		unsigned int _dist;
 }
 
 #endif
