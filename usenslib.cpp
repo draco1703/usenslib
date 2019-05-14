@@ -4,7 +4,7 @@
 */
 
 #include "Arduino.h"
-#include "usens.h"
+#include "usenslib.h"
 
 Usens::Usens(unsigned char trigPin, unsigned char echoPin){
 	/* implement */
