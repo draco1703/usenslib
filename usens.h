@@ -14,8 +14,8 @@ class Usens
 		bool isBlocked();
 		unsigned float distance();
 	private:
-		unsigned char _trigPin;
-		unsigned char _echoPin;
+		const unsigned char _trigPin;
+		const unsigned char _echoPin;
 		unsigned long _dur;
 		unsigned int _dist;
 }
