@@ -5,8 +5,8 @@
 #include "Arduino.h"
 #include "usenslib.h"
 
-#define speedOfSound 0.034 /* 340 m/s or 0.034 cm/microsecond */
-#define blockedDistance 30 /* figure out some distance in cm */ 
+const float speedOfSound 0.034 /* 340 m/s or 0.034 cm/microsecond */
+ 
 Usens::Usens(unsigned char trigPin, unsigned char echoPin){i
 	pinMode(trigPin, OUTPUT);
 	pinmode(echoPin, INPUT);
@@ -17,10 +17,10 @@ Usens::Usens(unsigned char trigPin, unsigned char echoPin){i
 }
 
 /* needs testing */
-bool Usens::isBlocked(){
+bool Usens::isBlocked(float blockDistance){
 	unsigned float currDist = distance();
 
-	if(currDist <= blockedDistance){
+	if(currDist <= blockDistance){
 		return true;
 	} else {
 		return false;

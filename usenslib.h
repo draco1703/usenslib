@@ -11,7 +11,7 @@
 class Usens
 {
 	public:
-		bool isBlocked();
+		bool isBlocked(float blockDistance);
 		unsigned float distance();
 	private:
 		const unsigned char _trigPin;
