@@ -11,12 +11,12 @@
 class Usens
 {
 	public:
-		Usens(char trigPin, char echoPin);
+		Usens(unsigned char trigPin, unsigned char echoPin);
 		bool isBlocked(float blockDistance);
 		float distance();
 	private:
-		const char _trigPin;
-		const char _echoPin;
+		char _trigPin;
+		char _echoPin;
 		long _dur;
 		int _dist;
 };

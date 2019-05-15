@@ -5,15 +5,15 @@
 #include "Arduino.h"
 #include "usenslib.h"
 
-const float speedOfSound = 0.034 /* 340 m/s or 0.034 cm/microsecond */
+/* 340 m/s or 0.034 cm/microsecond */
+const float speedOfSound = 0.034;
+const int averageReadAmount = 10;
 
-Usens::Usens(unsigned char trigPin, unsigned char echoPin){i
+Usens::Usens(unsigned char trigPin, unsigned char echoPin){
 	pinMode(trigPin, OUTPUT);
-	pinmode(echoPin, INPUT);
+	pinMode(echoPin, INPUT);
 	_trigPin = trigPin;
 	_echoPin = echoPin;
-
-	Serial.begin(7200);
 }
 
 /* needs testing */
@@ -28,19 +28,24 @@ bool Usens::isBlocked(float blockDistance){
 }
 
 /* needs testing */
-unsigned float Usens::distance(){
+float Usens::distance(){
 	/* clear out trigPin */
-	digitalWrite(_trigPin, LOW);
-	delayMicroseconds(2);
-	
-	digitalWrite(_trigPin, HIGH);
-	delayMicroseconds(10);
-	digitalWrite(_trigPin, LOW);
+	long sum = 0;
 
-	_dur = pulseIn(_echoPin, HIGH);
+	/*averages readings to offset sensor innacuracy*/
+	for(int i=0; i < averageReadAmount; i++){
+		digitalWrite(_trigPin, LOW);
+		delayMicroseconds(10);
+		
+		digitalWrite(_trigPin, HIGH);
+		delayMicroseconds(10);
+		digitalWrite(_trigPin, LOW);
+	
+		sum += pulseIn(_echoPin, HIGH);
+	}
 
 	/* distance = timeToObject * speedOfSound*/
-	_dist = _dur * speedOfSound / 2;
+	_dist = (sum/averageReadAmount) * speedOfSound / 2;
 
 	return _dist;
 }
