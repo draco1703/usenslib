@@ -5,7 +5,7 @@
 #include "Arduino.h"
 #include "usenslib.h"
 
-const float speedOfSound 0.034 /* 340 m/s or 0.034 cm/microsecond */
+const float speedOfSound = 0.034 /* 340 m/s or 0.034 cm/microsecond */
 
 Usens::Usens(unsigned char trigPin, unsigned char echoPin){i
 	pinMode(trigPin, OUTPUT);
@@ -18,7 +18,7 @@ Usens::Usens(unsigned char trigPin, unsigned char echoPin){i
 
 /* needs testing */
 bool Usens::isBlocked(float blockDistance){
-	unsigned float currDist = distance();
+	float currDist = distance();
 
 	if(currDist <= blockDistance){
 		return true;
