@@ -6,7 +6,7 @@
 #include "usenslib.h"
 
 const float speedOfSound 0.034 /* 340 m/s or 0.034 cm/microsecond */
- 
+
 Usens::Usens(unsigned char trigPin, unsigned char echoPin){i
 	pinMode(trigPin, OUTPUT);
 	pinmode(echoPin, INPUT);
