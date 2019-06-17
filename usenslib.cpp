@@ -15,7 +15,7 @@ Usens::Usens(unsigned char trigPin, unsigned char echoPin){
 	_trigPin = trigPin;
 	_echoPin = echoPin;
 	
-	Serial.write("sensor ready");
+	Serial.println("sensor ready");
 }
 
 /* needs testing */
