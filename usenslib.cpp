@@ -14,6 +14,8 @@ Usens::Usens(unsigned char trigPin, unsigned char echoPin){
 	pinMode(echoPin, INPUT);
 	_trigPin = trigPin;
 	_echoPin = echoPin;
+	
+	Serial.write("sensor ready");
 }
 
 /* needs testing */
