@@ -35,16 +35,14 @@ float Usens::distance(){
 	long sum = 0;
 
 	/*averages readings to offset sensor innacuracy*/
-	for(int i=0; i < averageReadAmount; i++){
+	//for(int i=0; i < averageReadAmount; i++){
 		digitalWrite(_trigPin, LOW);
 		delayMicroseconds(10);
-		
 		digitalWrite(_trigPin, HIGH);
 		delayMicroseconds(10);
 		digitalWrite(_trigPin, LOW);
-	
 		sum += pulseIn(_echoPin, HIGH);
-	}
+	//}
 
 	/* distance = timeToObject * speedOfSound*/
 	_dist = (sum/averageReadAmount) * speedOfSound / 2;
